@@ -117,6 +117,21 @@ def pull(file_name,sept=','):
     os.remove('{}.{}'.format(path[-1],tail))
     return files
 
+def pull_excel(file_name,sheet_name=None,header=0):
+  if '.' in file_name:
+    file_name, tail = file_name.split('.')[0], file_name.split('.')[1]
+  
+  path = file_name.split('/')
+
+  driver, file_id = get_drive_id(path)
+
+  myfile = driver.CreateFile({'id': file_id})
+  myfile.GetContentFile('{}.{}'.format(path[-1],tail))
+  files = pd.read_excel('{}.{}'.format(path[-1],tail),sheet_name=sheet_name,header=header)
+  os.remove('{}.{}'.format(path[-1],tail))
+  return files
+
+
 def sql(query):        
     df_name = query.split('from ')[1]\
                    .split(' ')[0].strip()
