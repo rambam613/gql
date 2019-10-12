@@ -1,3 +1,3 @@
 GQL
 
-See example here: https://github.com/rambam613/gql/blob/master/example.ipynb
+See example here: https://colab.research.google.com/drive/1ffvvgvk513Q3id3yOfNGnUjNiuiwHWAU
