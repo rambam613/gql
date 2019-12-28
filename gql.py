@@ -160,7 +160,7 @@ def push(df, file_name):
   path = path[:-1]
   
   driver, file_id = get_drive_id(path)                                                                           
-  rand = str(dt.datetime.today().replace(':','').replace('.','').replace(' ','').replace('-',''))
+  rand = str(dt.datetime.today()).replace(':','').replace('.','').replace(' ','').replace('-','')
   df.to_csv(rand+".csv", index = False)                                        
   uploaded = driver.CreateFile({'title':file_output,
                                "parents": [{"kind": "drive#fileLink",
