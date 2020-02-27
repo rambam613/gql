@@ -113,7 +113,7 @@ def pull(file_name,header=0,sept=','):
   myfile = driver.CreateFile({'id': file_id})
   myfile.GetContentFile('{}.{}'.format(path[-1],tail))
   if tail == 'csv':
-    files = pd.read_csv('{}.{}'.format(path[-1],tail),header=0,sep=sept)
+    files = pd.read_csv('{}.{}'.format(path[-1],tail),header=header,sep=sept)
     os.remove('{}.{}'.format(path[-1],tail))
     return files
 
